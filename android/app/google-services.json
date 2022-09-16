@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "715463419389",
+    "project_id": "tracking-people-d4158",
+    "storage_bucket": "tracking-people-d4158.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:715463419389:android:6a494f44d417cd3f0d2594",
+        "android_client_info": {
+          "package_name": "com.example.tracking_human"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "715463419389-h1tkcjgscel0gkbp95ojjkjejkdq9p4t.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC4BxBi2H_EBrcHfAGRRbcCcpWxsb2A1Uw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "715463419389-h1tkcjgscel0gkbp95ojjkjejkdq9p4t.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
