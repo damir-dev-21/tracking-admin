@@ -31,6 +31,14 @@ class _$AppRouter extends RootStackRouter {
         child: MainScreen(key: args.key),
       );
     },
+    UserRoute.name: (routeData) {
+      final args =
+          routeData.argsAs<UserRouteArgs>(orElse: () => const UserRouteArgs());
+      return MaterialPageX<dynamic>(
+        routeData: routeData,
+        child: UserScreen(key: args.key),
+      );
+    },
   };
 
   @override
@@ -42,6 +50,10 @@ class _$AppRouter extends RootStackRouter {
         RouteConfig(
           MainRoute.name,
           path: '/main-screen',
+        ),
+        RouteConfig(
+          UserRoute.name,
+          path: '/user-screen',
         ),
       ];
 }
@@ -79,5 +91,29 @@ class MainRouteArgs {
   @override
   String toString() {
     return 'MainRouteArgs{key: $key}';
+  }
+}
+
+/// generated route for
+/// [UserScreen]
+class UserRoute extends PageRouteInfo<UserRouteArgs> {
+  UserRoute({Key? key})
+      : super(
+          UserRoute.name,
+          path: '/user-screen',
+          args: UserRouteArgs(key: key),
+        );
+
+  static const String name = 'UserRoute';
+}
+
+class UserRouteArgs {
+  const UserRouteArgs({this.key});
+
+  final Key? key;
+
+  @override
+  String toString() {
+    return 'UserRouteArgs{key: $key}';
   }
 }

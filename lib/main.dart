@@ -1,14 +1,16 @@
-import 'package:firebase_core/firebase_core.dart';
+import 'package:firedart/firedart.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:tracking_admin_panel/providers/placeProvider.dart';
 import 'package:tracking_admin_panel/providers/userProvider.dart';
 import 'package:tracking_admin_panel/routes/router.dart';
 
+const apiKey = "AIzaSyAhAIdbQfBNQIa6lT82FBRZHJvSFuLHeU0";
+const projectId = "tracking-people-d4158";
+
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
-
-  await Firebase.initializeApp();
+  Firestore.initialize(projectId);
   runApp(MyApp());
 }
 

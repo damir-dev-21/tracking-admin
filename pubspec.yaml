@@ -42,8 +42,8 @@ dependencies:
   ftoast: ^2.0.0
   fluttertoast: ^8.0.9
   auto_route_generator: ^3.2.3
-  cloud_firestore: ^3.4.7
-  firebase_core: ^1.22.0
+  firedart: ^0.9.0+1
+  syncfusion_flutter_datagrid: ^20.2.49
 
 dev_dependencies:
   flutter_test:
