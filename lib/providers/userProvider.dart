@@ -26,7 +26,6 @@ class UserProvider extends ChangeNotifier {
         };
 
         users.add(place);
-        print(place);
         notifyListeners();
       });
 

@@ -16,16 +16,23 @@ class PlaceProvider extends ChangeNotifier {
       places.clear();
       places_fire.forEach((element) {
         num = num + 1;
+        var status = false;
+        double long =
+            double.parse((element.map['lon']).toString().substring(0, 7));
+        if (element.map['lon'] < 67.0730) {
+          status = false;
+        } else {
+          status = true;
+        }
         final Map<String, dynamic> place = {
           "number": num,
           "user": element.map['user'],
           "name": element.map['name'],
           "date": element.map['date'],
-          "status": false,
+          "status": status,
         };
 
         places.add(place);
-        print(place);
         notifyListeners();
       });
 

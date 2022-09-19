@@ -17,10 +17,14 @@ class MainScreen extends StatefulWidget {
 
 class _MainScreenState extends State<MainScreen> {
   @override
+  void initState() {
+    super.initState();
+  }
+
+  @override
   Widget build(BuildContext context) {
     final UserProvider userProvider = Provider.of<UserProvider>(context);
     final PlaceProvider placeProvider = Provider.of<PlaceProvider>(context);
-
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
@@ -67,6 +71,7 @@ class _MainScreenState extends State<MainScreen> {
         height: MediaQuery.of(context).size.height,
         width: MediaQuery.of(context).size.width,
         child: SfDataGrid(
+            allowSorting: true,
             columnWidthMode: ColumnWidthMode.fitByCellValue,
             allowColumnsResizing: true,
             onColumnResizeUpdate: (ColumnResizeUpdateDetails details) {
@@ -77,7 +82,7 @@ class _MainScreenState extends State<MainScreen> {
             columns: [
               GridColumn(
                   columnName: 'number',
-                  width: 70,
+                  width: 50,
                   autoFitPadding: const EdgeInsets.all(0),
                   label: Container(
                       alignment: Alignment.center,
@@ -86,7 +91,7 @@ class _MainScreenState extends State<MainScreen> {
                       ))),
               GridColumn(
                   columnName: 'user',
-                  width: 70,
+                  width: MediaQuery.of(context).size.width / 4,
                   autoFitPadding: const EdgeInsets.all(0),
                   label: Container(
                       alignment: Alignment.center,
@@ -95,7 +100,7 @@ class _MainScreenState extends State<MainScreen> {
                       ))),
               GridColumn(
                   columnName: 'name',
-                  width: 150,
+                  width: MediaQuery.of(context).size.width / 4,
                   autoFitPadding: const EdgeInsets.all(0),
                   label: Container(
                       alignment: Alignment.center,
@@ -104,7 +109,7 @@ class _MainScreenState extends State<MainScreen> {
                       ))),
               GridColumn(
                   columnName: 'date',
-                  width: 200,
+                  width: MediaQuery.of(context).size.width / 4,
                   autoFitPadding: const EdgeInsets.all(0),
                   label: Container(
                       alignment: Alignment.center,
@@ -113,7 +118,7 @@ class _MainScreenState extends State<MainScreen> {
                       ))),
               GridColumn(
                   columnName: 'status',
-                  width: 70,
+                  width: MediaQuery.of(context).size.width / 4,
                   autoFitPadding: const EdgeInsets.all(0),
                   label: Container(
                       alignment: Alignment.center,
@@ -162,13 +167,27 @@ class BalanceDataSource extends DataGridSource {
   DataGridRowAdapter? buildRow(DataGridRow row) {
     return DataGridRowAdapter(
         cells: row.getCells().map<Widget>((dataGridCell) {
-      return Container(
-        decoration: BoxDecoration(),
-        width: 50,
-        alignment: (Alignment.center),
-        padding: EdgeInsets.all(16.0),
-        child: Text(dataGridCell.value.toString()),
-      );
+      return dataGridCell.columnName == 'status'
+          ? Center(
+              child: Container(
+                child: dataGridCell.value == true
+                    ? Text(
+                        "Работает",
+                        style: TextStyle(color: Colors.greenAccent),
+                      )
+                    : Text(
+                        "Неработает",
+                        style: TextStyle(color: Colors.redAccent),
+                      ),
+              ),
+            )
+          : Container(
+              decoration: BoxDecoration(),
+              width: 50,
+              alignment: (Alignment.center),
+              padding: EdgeInsets.all(16.0),
+              child: Text(dataGridCell.value.toString()),
+            );
     }).toList());
   }
 }

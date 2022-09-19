@@ -18,7 +18,7 @@ class _UserScreenState extends State<UserScreen> {
   Widget build(BuildContext context) {
     final UserProvider userProvider = Provider.of<UserProvider>(context);
     final PlaceProvider placeProvider = Provider.of<PlaceProvider>(context);
-
+    userProvider.getUsers();
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
@@ -80,7 +80,7 @@ class _UserScreenState extends State<UserScreen> {
                       ))),
               GridColumn(
                   columnName: 'name',
-                  width: 200,
+                  width: MediaQuery.of(context).size.width / 4,
                   autoFitPadding: const EdgeInsets.all(0),
                   label: Container(
                       alignment: Alignment.center,
@@ -89,7 +89,7 @@ class _UserScreenState extends State<UserScreen> {
                       ))),
               GridColumn(
                   columnName: 'surname',
-                  width: 200,
+                  width: MediaQuery.of(context).size.width / 4,
                   autoFitPadding: const EdgeInsets.all(0),
                   label: Container(
                       alignment: Alignment.center,
@@ -98,7 +98,7 @@ class _UserScreenState extends State<UserScreen> {
                       ))),
               GridColumn(
                   columnName: 'post',
-                  width: 200,
+                  width: MediaQuery.of(context).size.width / 4,
                   autoFitPadding: const EdgeInsets.all(0),
                   label: Container(
                       alignment: Alignment.center,
@@ -107,7 +107,7 @@ class _UserScreenState extends State<UserScreen> {
                       ))),
               GridColumn(
                   columnName: 'imei',
-                  width: 150,
+                  width: MediaQuery.of(context).size.width / 4,
                   autoFitPadding: const EdgeInsets.all(0),
                   label: Container(
                       alignment: Alignment.center,
